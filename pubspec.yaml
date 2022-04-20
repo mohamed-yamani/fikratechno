@@ -8,7 +8,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
+  sdk: ">=2.11.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -18,9 +18,9 @@ dependencies:
   # bloc for state management
   bloc:
   # value equality
-  equatable:
+  equatable: ^0.4.0
   # Functional programming thingies
-  dartz: 
+  dartz: ^0.8.6
   # Remote api
   connectivity: 
   http: 

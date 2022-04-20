@@ -1,10 +1,8 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 
-class Login extends Equatable {
-  const Login(this.token);
-
+class Token extends Equatable {
   final String token;
 
-  @override
-  List<Object> get props => [token];
+  Token({@required this.token}) : super([token]);
 }
