@@ -107,13 +107,13 @@ void main() {
         'should return last locally cached data when the cached data is present',
         () async {
           // arrange
-          when(mockLocalDataSource.getCachedToken())
+          when(mockLocalDataSource.getLastToken())
               .thenAnswer((_) async => testtoken);
           // act
           final result = await repository.loginIn(testusername, testpassword);
           // assert
           verifyZeroInteractions(mockRemoteDataSource);
-          verify(mockLocalDataSource.getCachedToken());
+          verify(mockLocalDataSource.getLastToken());
           expect(result, equals(Right(testTokenEntity)));
         },
       );
@@ -122,13 +122,12 @@ void main() {
         'should return CacheFailure when there is no cached data present',
         () async {
           // arrange
-          when(mockLocalDataSource.getCachedToken())
-              .thenThrow(CacheException());
+          when(mockLocalDataSource.getLastToken()).thenThrow(CacheException());
           // act
           final result = await repository.loginIn(testusername, testpassword);
           // assert
           verifyZeroInteractions(mockRemoteDataSource);
-          verify(mockLocalDataSource.getCachedToken());
+          verify(mockLocalDataSource.getLastToken());
           expect(result, equals(Left(CacheFailure())));
         },
       );

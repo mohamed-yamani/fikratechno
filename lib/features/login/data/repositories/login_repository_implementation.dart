@@ -32,7 +32,7 @@ class LoginRepostoryImplementaiton implements LoginRepository {
       }
     } else {
       try {
-        final localLogin = await localDataSource.getCachedToken();
+        final localLogin = await localDataSource.getLastToken();
         return Right(localLogin);
       } on CacheException {
         return Left(CacheFailure());
