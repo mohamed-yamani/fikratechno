@@ -10,8 +10,7 @@ class LoginButtonPressed extends LoginEvent {
   final String password;
 
   LoginButtonPressed({@required this.username, @required this.password})
-      : assert(username != null),
-        assert(password != null);
+      : super([username, password]);
 
   @override
   String toString() =>
